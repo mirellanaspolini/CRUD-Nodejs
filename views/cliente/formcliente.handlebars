@@ -1,0 +1,54 @@
+<h3 class="mt-4">Registrar Cliente</h3>
+<hr />
+<form action="/clientes/save" method="POST" class="container">
+
+    <input type="hidden" name="id" value="{{cliente.id}}" />
+
+    <div class="form-group">
+        <label for="txtnome">Nome:</label>
+        <input
+            type="text"
+            name="nome"
+            id="txtnome"
+            class="form-control"
+            value="{{cliente.nome}}" placeholder="Nome e sobrenome"
+            required
+        />
+    </div>
+    <div class="form-group">
+        <label for="txtendereco">Endereço:</label>
+        <input
+            type="text"
+            id="txtendereco"
+            class="form-control"
+            value="{{cliente.endereco}}"
+            name="endereco"
+            placeholder="Rua, avenida..."
+            required
+        />
+    </div>
+
+    <div class="form-group">
+        <label for="txtsexo">Sexo:</label>
+        <select name="sexo" id="txtsexo" class="form-control" required value="{{cliente.sexo}}">
+            <option value="" selected disabled>Selecione</option>
+            <option value="Masculino">Masculino</option>
+            <option value="Feminino">Feminino</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="txttelefone">Telefone:</label>
+        <input
+            type="tel"
+            id="txttelefone"
+            class="form-control"
+            value="{{cliente.telefone}}"
+            name="telefone"
+            placeholder="00 00000-0000"
+            required
+        />
+    </div>
+    <br />
+    <button style="float: right;" type="submit" class="btn btn-primary text-uppercase">salvar</button>
+</form>

@@ -1,0 +1,78 @@
+<div class="container d-flex justify-content-between align-items-center">
+    <h1 style="margin-bottom: 0;" class="mt-4">Registro de clientes</h1>
+    <a
+        style="height: fit-content;"
+        href="./clientes/novo"
+        class="btn btn-primary text-uppercase"
+    > Novo</a>
+</div>
+<hr />
+
+<table class="table" id="clientes">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Endereço</th>
+            <th>Sexo</th>
+            <th>Telefone</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each listaclientes}}
+            <tr>
+                <td>{{this.id}}</td>
+                <td>{{this.nome}}</td>
+                <td>{{this.endereco}}</td>
+                <td>{{this.sexo}}</td>
+                <td>{{this.telefone}}</td>
+                <td>
+                    <a
+                        href="/clientes/editar/{{this.id}}"
+                        class="btn btn-primary text-uppercase"
+                    >editar</a>
+                    <button
+                        class="btn btn-secondary js-delete text-uppercase"
+                        data-id="{{this.id}}"
+                    >excluir</button>
+                </td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+<div class="modal" tabindex="-1" id="modal-excluir">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Excluir cliente</h5>
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                ></button>
+            </div>
+            <div class="modal-body">
+                <p>Tem certeza que deseja excluir este cliente?</p>
+            </div>
+            <div class="modal-footer">
+                <button
+                    type="button"
+                    id="btn-excluir"
+                    class="btn btn-primary text-uppercase"
+                >Excluir</button>
+                <button
+                    type="button"
+                    id="btn-cancelar"
+                    class="btn btn-secondary text-uppercase"
+                    data-bs-dismiss="modal"
+                >Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/jquery.min.js"></script>
+<script src="/public/site.js"></script>
